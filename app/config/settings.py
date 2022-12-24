@@ -30,15 +30,24 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+PROJECT_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+]
+
+CUSTOM_APP = [
     "books",
 ]
+
+PACKAGE_APP = [
+    "graphene_django",
+]
+
+INSTALLED_APPS = PROJECT_APPS + CUSTOM_APP + PACKAGE_APP
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -99,6 +108,10 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+GRAPHENE = {
+    "SCHEMA": "django_root.schema.schema"
+}
 
 
 # Internationalization
